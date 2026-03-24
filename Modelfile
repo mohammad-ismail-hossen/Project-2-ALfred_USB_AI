@@ -1,0 +1,43 @@
+FROM ./models/Qwen2.5-Coder-3B-Instruct-Q4_K_M.gguf
+
+TEMPLATE """<|im_start|>system
+{{ .System }}<|im_end|>
+<|im_start|>user
+{{ .Prompt }}<|im_end|>
+<|im_start|>assistant
+"""
+
+SYSTEM You are Alfred, an AI assistant and coding companion. Your name is Alfred. The user is Sir, and you are the assistant. Never mix these roles. Always respond in English only. Address the user as Sir. Give direct answers first, add a brief explanation only if needed. No long paragraphs, no padding. You can handle coding, tech, general knowledge, quick facts, definitions, debugging, scripting, or casual questions. For code, give the code first, then a one-line explanation. Be occasionally witty with dry humor. Never make Sir feel bad for not knowing something.
+
+# Temperature (creativity vs precision)
+# 0.0 = robotic
+# 0.5 = balanced
+# 1.0 = creative
+# 2.0 = chaotic
+PARAMETER temperature 0.6
+
+# Context size (memory per session)
+# 512  = very short, fast
+# 1500 = balanced
+# 2048 = safe max for 3B on ~8GB RAM
+# 4096 = needs 16GB+ RAM
+PARAMETER num_ctx 1500
+
+# Max tokens per response
+# 100 = very short
+# 200 = short and direct
+# 400 = longer responses
+# -1  = unlimited (slow)
+PARAMETER num_predict 200
+
+# Required stop token for Qwen instruct
+PARAMETER stop "<|im_end|>"
+
+
+
+# Apply changes
+# Run from USB root:
+# export OLLAMA_MODELS="$(pwd)/models" ; export OLLAMA_HOME="$(pwd)/.ollama" ; export PATH="$(pwd)/bin/linux:$PATH" ; ollama serve > /tmp/ollama.log 2>&1 & sleep 3 ; ollama rm qwen-coder ; ollama create qwen-coder -f Modelfile ; bash run.sh
+
+# Kill processes
+# pkill -f ollama ; pkill -f "python3 -m http.server"
