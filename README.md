@@ -21,7 +21,7 @@ Alfred is built to be:
 
 ## Demo
 
-[![Watch Demo](./Preview's/preview.png)](https://your-youtube-link-here)
+[![Watch Demo](./Preview's/preview.png)](https://youtu.be/oPw_BT-jTBw)
 
 > Click to watch a quick preview of Alfred in action
 
@@ -29,9 +29,9 @@ Alfred is built to be:
 
 ## Preview
 
-| Start-up:Preview 1 | Preview 2 |
-|-----------|-----------|
-| ![Preview1](./Preview's/preview1.png) | ![Preview2](./Preview's/preview2.png) |
+| Start-up:Preview 1 | Preview 2 | Preview 3|
+|-----------|-----------|----------|
+| ![Preview1](./Preview's/usb.png) | ![Preview2](./Preview's/preview1.png) | ![Preview1](./Preview's/preview2.png) |
 
 | Use-case:Preview 1 | Preview 2 | Preview 3 |
 |-----------|-----------|-----------|
